@@ -11,7 +11,7 @@ const fileUpload = require('express-fileupload');
 //allows lilent querying
 mongoose.set('strictQuery', false)
 
-mongoose.connect('mongodb+srv://uname:pwd@cluster0.mp5chzg.mongodb.net/Shopy').then((result) => {
+mongoose.connect('mongodb+srv://uname:pwd@cluster0.mp5chzg.mongodb.net/Emart').then((result) => {
   app.listen(5000);
 }).catch((err) => {
   console.log(err)
@@ -52,3 +52,14 @@ app.use((req, res) => {
     message: 'not found'
   })
 })
+
+// const config = {
+//   service: "gmail",
+//   host: "stmp.gmail.com",
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     user: "vedaayur720@gmail.com",
+//     pass: "yfvwkkfwfttfjzly"
+//   }
+// }

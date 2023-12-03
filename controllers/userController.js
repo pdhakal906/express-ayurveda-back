@@ -1,6 +1,7 @@
 const User = require('../model/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const sendMail = require('../mailer');
 
 
 
@@ -75,13 +76,25 @@ module.exports.userRegister = async (req, res) => {
         password: hashed
       });
 
+      const mailOptions = {
+        from: "vedaayur720@gmail.com",
+        to: "pdhakal906@gmail.com",
+        subject: "hello welcome",
+        html: `<p>Thank you for registering!</p>`
+      };
+
+      try {
+        await sendMail(mailOptions);
+        console.log("mail sent")
+      } catch (error) {
+        console.log("Error", error)
+      }
+
       return res.status(201).json({
         status: "succes",
-        message: 'sudusf'
+        message: 'sucessfully registeered'
       })
-
     }
-
   } catch (err) {
     return res.status(400).json({
       status: 400,
